@@ -20,7 +20,7 @@ const UserListPage: React.FC = () => {
   if (isError || !data) return <div>Error: {error ? (error as any).message : 'Unknown error'}</div>;
 
   return (
-    <div>
+    <div className='userlistpage-container'>
       <div className='users-list'>
         {data.data.map((user: User) => (
           <Link to={`/userpage/${user.id}`} state={{ pageNumber: page }} className='users-container' key={user.id}>

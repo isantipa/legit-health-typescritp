@@ -30,10 +30,10 @@ const UserDetailsPage: React.FC = () => {
     if (isError || !data) return <div>Error: {error ? (error as any).message : 'Unknown error'}</div>;
 
     return (
-        <div>
-            <div>
+        <div className='userpage-container'>
+            <div className='usercard-container'>
                 <img src={data.data.avatar} alt={`${data.data.first_name} ${data.data.last_name}`} />
-                <p>{`${data.data.first_name} ${data.data.last_name}`}</p>
+                <h3>{`${data.data.first_name} ${data.data.last_name}`}</h3>
                 <p>{data.data.email}</p>
                 <p>ID: {data.data.id}</p>
             </div>

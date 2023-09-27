@@ -27,7 +27,7 @@
 
 .header-container h1 {
     text-transform: uppercase;
-    font-size: 3rem;
+    font-size: 2rem;
     letter-spacing: 4px;
     color: white;
 }
@@ -39,17 +39,17 @@
     list-style: none;
 }
 
-.header-container .nav-container ul li {
+.header-container ul li {
     text-transform: uppercase;
     font-weight: 800;
 }
 
-.header-container .nav-container ul li a {
+.header-container ul li a {
     text-decoration: none;
     color: white;
 }
 
-.header-container .nav-container ul li a:visited {
+.header-container ul li a:visited {
     color: white;
 }
 
@@ -68,8 +68,11 @@
 }
 
 .users-container {
+    text-decoration: none;
+    font-family: 'trujillor', sans-serif;
     position: relative;
     border: 4px solid rgb(88, 113, 186);
+    color: rgb(48, 60, 120);
     margin: 1rem 1rem;
     padding: 10px;
     width: 17rem;
@@ -83,6 +86,7 @@
     border-color: rgb(58, 73, 146);
     box-shadow: rgba(0, 0, 0, 0.666) 10px 10px 10px;
     transform: scale(1.05);
+    color: aliceblue;
 }
 
 .users-container img {
@@ -94,21 +98,91 @@
     border: 4px solid rgb(88, 113, 186);
 }
 
-.users-container .info-users-container p {
-    text-decoration: none;
-    color: rgb(48, 60, 120);
+.info-users-container p {
+    margin: 0.2rem 0.6rem 0;
 }
-.users-container .info-users-container a {
-    text-decoration: none;
+
+.info-users-container p:first-child {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.userlistpage-container button {
+    display: block;
+    margin: 0 auto 1rem;
 }
 /* #endregion ==== */
 
-/* #region ====  STYLES ====*/
+/* #region ====  BUTTONS STYLES ====*/
+button {
+    width: 11rem;
+    height: 2.5rem;
+    background: linear-gradient(45deg, rgb(88, 113, 186), rgb(18, 159, 113));
+    color: white;
+    font-family: 'trujillob', sans-serif;
+    font-size: 1.2rem;
+    border: 2px solid rgb(38, 48, 79);
+    box-shadow: rgba(0, 0, 0, 0.666) 5px 5px 10px;
+    transition: background 0.5s ease-out, border-color 0.5s ease-out, transform 0.3s;
+}
 
+button:hover {
+    border: 2px solid rgb(38, 48, 79);
+    box-shadow: rgba(0, 0, 0, 0.666) 10px 10px 10px;
+    transform: scale(1.05);
+    font-weight: bold;
+}
 /* #endregion ==== */
 
-/* #region ====  STYLES ====*/
+/* #region ==== USER DETAILS PAGE STYLES ====*/
+.userpage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.usercard-container {
+    font-family: 'trujillo', sans-serif;
+    color: aliceblue;
+    margin: 1rem;
+    border: 4px solid rgb(51, 65, 107);
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 17rem;
+    box-shadow: rgba(0, 0, 0, 0.666) 5px 5px 10px;
+    background: linear-gradient(45deg, rgb(88, 113, 186), rgb(18, 159, 113));
+    transition: background ,  box-shadow 1s ease-out;
+}
+
+.usercard-container:hover {
+    box-shadow: rgba(0, 0, 0, 0.666) 10px 10px 10px;
+}
+
+.userpage-container .usercard-container img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid aliceblue;
+}
+
+.usercard-container p {
+    margin-top: 0.3rem;
+}
+
+.usercard-container p:last-child {
+    font-weight: bolder;
+}
+
+.usercard-container h3 {
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
 /* #endregion ==== */
 
 /* #region ====  STYLES ====*/
