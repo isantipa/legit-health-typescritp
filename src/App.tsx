@@ -1,12 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import UserListPage from './pages/UserListPage';
+import CreateUserPage from './pages/CreateUserPage';
+import UserDetailsPage from './pages/UserDetailsPage';
+import Nav from './components/Nav';
+import Header from './components/Header';
 import './App.css';
 
-function App() {
+const queryClient = new QueryClient();
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Ole ole</h1>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <main>
+          <Header />
+          <Nav />
+          <Routes>
+            <Route path="/page/:pageNumber" element={<UserListPage />} />
+            <Route path="/userpage/:id" element={<UserDetailsPage />} />
+            <Route path="/create-user" element={<CreateUserPage />} />
+            <Route path="*" element={<UserListPage />} />
+          </Routes>
+        </main>
+      </Router>
+    </QueryClientProvider>
   );
 }
 
