@@ -57,18 +57,23 @@
     list-style: none;
 }
 
-.header-container ul li {
+.header-container .nav-container li {
     text-transform: uppercase;
     font-weight: 800;
 }
 
-.header-container ul li a {
+.header-container .nav-container ul li a {
     text-decoration: none;
     color: white;
 }
 
-.header-container ul li a:visited {
+.header-container .nav-container ul li a:visited {
     color: white;
+}
+
+.header-container .nav-container ul li a:hover {
+    text-decoration: none;
+    color: rgb(191, 202, 241);
 }
 
 .header-container img {
