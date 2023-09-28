@@ -1,7 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+@import 'react-toastify/dist/ReactToastify.css';
 
 @font-face {
     font-family: 'trujillob';
@@ -11,6 +8,27 @@
 @font-face {
     font-family: 'trujillor';
     src: url('../fonts/trujilloregular.ttf') format('truetype'),
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.light-mode {
+    background-color: #ffffff;
+}
+  
+.dark-mode {
+    background-color: #0f0f0f;
+    color: #ffffff;
+}
+
+.toggle-dark-mode {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 1000; 
 }
 
 
@@ -57,6 +75,11 @@
     width: 7rem;
     margin: 0.5rem 0;
 }
+
+.header-container .rrss-container img {
+    width: 20px;
+    margin: 0 0.3rem;
+}
 /* #endregion ==== */
 
 /* #region ==== USER LIST PAGE STYLES ====*/
@@ -81,12 +104,21 @@
     transition: background 1s ease-out, border-color 1s ease-out, transform 1s ease-out;
 }
 
+.dark-mode .users-container {
+    box-shadow: rgba(255, 255, 255, 0.097) 5px 5px 10px;
+    transition: background 1s ease-out, border-color 1s ease-out, transform 1s ease-out;
+}
+
 .users-container:hover {
     background: linear-gradient(45deg, rgb(88, 113, 186), rgb(18, 159, 113));
     border-color: rgb(58, 73, 146);
     box-shadow: rgba(0, 0, 0, 0.666) 10px 10px 10px;
     transform: scale(1.05);
     color: aliceblue;
+}
+
+.dark-mode .users-container:hover {
+    box-shadow: rgba(255, 255, 255, 0.241) 5px 5px 10px;
 }
 
 .users-container img {
@@ -132,6 +164,11 @@ button:hover {
     transform: scale(1.05);
     font-weight: bold;
 }
+
+.dark-mode button {
+    border: 2px solid rgb(111, 130, 189);
+    box-shadow: rgba(255, 255, 255, 0.146) 5px 5px 10px;
+}
 /* #endregion ==== */
 
 /* #region ==== USER DETAILS PAGE STYLES ====*/
@@ -139,7 +176,8 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    height: 70vh;
 }
 
 .usercard-container {
@@ -150,12 +188,18 @@ button:hover {
     padding: 1rem 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 17rem;
     box-shadow: rgba(0, 0, 0, 0.666) 5px 5px 10px;
     background: linear-gradient(45deg, rgb(88, 113, 186), rgb(18, 159, 113));
     transition: background ,  box-shadow 1s ease-out;
+}
+
+.dark-mode .usercard-container {
+    box-shadow: rgba(255, 255, 255, 0.241) 5px 5px 10px;
+}
+.dark-mode .usercard-container:hover {
+    box-shadow: rgba(255, 255, 255, 0.147) 5px 5px 10px;
 }
 
 .usercard-container:hover {
@@ -185,6 +229,106 @@ button:hover {
 }
 /* #endregion ==== */
 
-/* #region ====  STYLES ====*/
+/* #region ====  CREATE USERS PAGE STYLES ====*/
+.createuserspage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    height: 68vh;
+}
+
+.form-container {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 4px solid rgb(51, 65, 107);
+    box-shadow: rgba(0, 0, 0, 0.666) 5px 5px 10px;
+    background: linear-gradient(45deg, rgb(88, 113, 186), rgb(18, 159, 113));
+}
+
+.dark-mode .form-container {
+    box-shadow: rgba(255, 255, 255, 0.241) 5px 5px 10px;
+}
+
+.form-container .label-container {
+    margin: 1rem 0;
+}
+
+.form-container .label-container label {
+    color: aliceblue;
+    font-family: 'trujillobold', sans-serif;
+    font-weight: bold;
+}
+
+.form-container .label-container input {
+    margin-left: 0.7rem;
+}
+
+.form-container .label-container span {
+    color: rgb(249, 33, 33);
+    font-family: 'trujillor', sans-serif;
+    font-weight: bolder;
+    background-color: rgba(55, 57, 83, 0.284);
+    width: fit-content;
+    font-size: 1em;
+    margin-top: 0.5rem;
+    padding: 0.2rem;
+    display: block;
+}
+/* #endregion ==== */
+
+/* #region ====  LOADER STYLES ====*/
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.loader {
+    position: relative; /* This control the pseudoelements */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+    background-image: linear-gradient(0deg, rgb(88, 113, 186), rgb(18, 159, 113));
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    top: 7.5%; /* Center the pseudo element*/
+    left: 7.5%;
+    width: 85%;
+    height: 85%;
+    background-color: white;
+    border-radius: inherit;
+}
+
+.loading-container p {
+    margin: 1rem 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 /* #endregion ==== */
+
+/* #region FOOTER STYLES*/
+.footer-container {
+    background: linear-gradient(45deg, rgb(88, 113, 186), rgb(18, 159, 113));
+    padding: 0.5rem 0 0.5rem;
+}
+.footer-container p {
+    margin: 0 1rem;
+    font-size: small;
+    color: aliceblue;
+    text-align: right;
+}
+/* #endregion*/

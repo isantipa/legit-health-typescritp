@@ -6,6 +6,7 @@ interface PaginationProps {
   totalPages: number;
 }
 
+// The Pagination component displays buttons for navigating between pages
 const Pagination: React.FC<PaginationProps> = ({ currentPage, changePage, totalPages }) => {
   return (
     <div>

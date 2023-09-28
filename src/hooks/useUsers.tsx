@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
 
+// Define the expected response structure from the API
 interface UsersResponse {
     data: {
         id: number;
@@ -24,6 +25,7 @@ const fetchUsers = async (page: number = 1): Promise<UsersResponse> => {
   return response.json();
 };
 
+// Custom hook to fetch user data for the given page using `react-query`.
 const useUsers = (page: number) => {
   return useQuery<UsersResponse>(['users', page], () => fetchUsers(page));
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SocialIcons from './SocialIcons';
 
 const Nav: React.FC = () => {
   return (
@@ -12,6 +13,8 @@ const Nav: React.FC = () => {
             <li>
             <Link to="/create-user">Create User</Link>
             </li>
+            {/*Here, the social media icons will be loaded.*/}
+            <SocialIcons />
         </ul>
         </nav>
     </div>
