@@ -158,7 +158,7 @@ button {
     color: white;
     font-family: 'trujillob', sans-serif;
     font-size: 1.2rem;
-    border: 2px solid rgb(38, 48, 79);
+    border: 3px solid rgb(75, 92, 147);
     box-shadow: rgba(0, 0, 0, 0.666) 5px 5px 10px;
     transition: background 0.5s ease-out, border-color 0.5s ease-out, transform 0.3s;
 }
@@ -310,6 +310,9 @@ button:hover {
     height: 85%;
     background-color: white;
     border-radius: inherit;
+}
+.dark-mode .loader::after {
+    background-color: #141517;
 }
 
 .loading-container p {
