@@ -15,11 +15,17 @@
     padding: 0;
 }
 
+
+.main {
+    min-height: 100vh;
+}
+
+/* #region ==== DARK MODE BASES STYLES ====*/
 .light-mode {
     background-color: #ffffff;
 }
   
-.dark-mode {
+.dark-mode main {
     background-color: #141517;
     color: #ffffff;
 }
@@ -31,23 +37,18 @@
     z-index: 1000; 
 }
 
+/* #endregion ==== */
 
 /* #region ==== HEADER STYLES ====*/
 .header-container {
     text-align: center;
     font-family: 'trujillob', sans-serif;
+    min-height: 18vh;
 }
 
 .header-container .title-container {
     background: linear-gradient(45deg, rgb(88, 113, 186), rgb(18, 159, 113));
     padding: 0.5rem 0 0.5rem;
-}
-
-.header-container h1 {
-    text-transform: uppercase;
-    font-size: 2rem;
-    letter-spacing: 4px;
-    color: white;
 }
 
 .header-container .nav-container ul{
@@ -88,6 +89,10 @@
 /* #endregion ==== */
 
 /* #region ==== USER LIST PAGE STYLES ====*/
+.userlistpage-container {
+    min-height: 69.5vh;
+}
+
 .users-list {
     display: flex;
     justify-content: center;
@@ -174,6 +179,12 @@ button:hover {
     border: 2px solid rgb(111, 130, 189);
     box-shadow: rgba(255, 255, 255, 0.146) 5px 5px 10px;
 }
+
+.darkmode-button-container {
+    display: flex;
+    justify-content: right;
+    margin: 1rem;
+}
 /* #endregion ==== */
 
 /* #region ==== USER DETAILS PAGE STYLES ====*/
@@ -182,7 +193,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 70vh;
+    min-height: 70.7vh;
 }
 
 .usercard-container {
@@ -241,7 +252,7 @@ button:hover {
     align-items: center;
     justify-content: flex-start;
     margin-top: 1rem;
-    height: 68vh;
+    min-height: 70.7vh;
 }
 
 .form-container {
@@ -258,6 +269,11 @@ button:hover {
 
 .form-container .label-container {
     margin: 1rem 0;
+}
+
+.form-container .label-container:last-child {
+    display: flex;
+    justify-content: center;
 }
 
 .form-container .label-container label {

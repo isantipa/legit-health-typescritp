@@ -1,17 +1,16 @@
-import React from "react";
-import { useState } from 'react';
+import React from 'react';
+import { useDarkMode } from '../context/DarkModeContext'; 
 
 const DarkModeButton: React.FC = () => {
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
-    const [darkMode, setDarkMode] = useState(false);
-    
-    return (
-        <div className="">
-            <button onClick={() => setDarkMode(!darkMode)}>
-              {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-            </button>
-        </div>
-    )
+  return (
+    <div className='darkmode-button-container'>
+      <button onClick={toggleDarkMode} className='dark-buton'>
+        {darkMode ? "Light Mode" : "Dark Mode"}
+      </button>
+    </div>
+  );
 }
 
-export default DarkModeButton
+export default DarkModeButton;
