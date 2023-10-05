@@ -9,35 +9,54 @@ interface FormData {
 }
 
 function CreateUserPage() {
-  // Initialize form handling functions and states with react-hook-form
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
-  // Hook for programmatically navigating
   const navigate = useNavigate();
 
-  // Function to execute when form is submitted
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch('https://reqres.in/api/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-
-      if (!response.ok) {
-        throw new Error('Error creating user');
+      // Check if the email already exists
+      const emailAlreadyExists = await checkEmailExists(data.email);
+      if (emailAlreadyExists) {
+        toast.error('Email already exists.');
+        return;
       }
 
-      const result = await response.json();
-      toast.success('User created successfully! ID: ' + result.id);
-
-      navigate('/'); 
-
+      // Create the user
+      const userCreated = await createUser(data);
+      if (userCreated) {
+        toast.success('User created successfully! ID: ' + userCreated.id);
+        navigate('/');
+      }
     } catch (error) {
       toast.error((error as Error).message);
     }
   };
+
+  const checkEmailExists = async (email: string) => {
+    const usersResponse = await fetch('https://reqres.in/api/users?page=1');
+    if (!usersResponse.ok) {
+      throw new Error('Error fetching user list');
+    }
+    const usersData = await usersResponse.json();
+    return usersData.data.some((user: any) => user.email === email);
+  };
+
+  const createUser = async (data: FormData) => {
+    const response = await fetch('https://reqres.in/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    if (!response.ok) {
+      throw new Error('Error creating user');
+    }
+    return response.json();
+  };
+
+  // This is a workaround; the optimal solution would be to use an API or backend function 
+  // that allows checking within the email list, but the provided API does not have this capability.
 
   return (
     <div className='createuserspage-container'>

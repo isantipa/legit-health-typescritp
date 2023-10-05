@@ -12,7 +12,7 @@
 ### Instalación
 
     git clone https://github.com/isantipa/legit-health-typescritp
-    cd legit-health-typescript
+    cd legit-health-typescritp
     npm install
     npm start
 
